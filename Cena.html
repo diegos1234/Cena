@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plato con Comida</title>
+</head>
+<body>
+	<canvas id="miLienzo"></canvas>
+</body>
+<script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+<script>
+	var codigoDePrograma = function(instanciaProcessing) {
+		with (instanciaProcessing) {
+			size(400, 400);
+
+			// Fondo (mesa)
+			background(139, 69, 19); // Marrón para la mesa
+
+			// Plato
+			fill(255); // Blanco para el plato
+			stroke(200); // Borde gris claro
+			strokeWeight(5);
+			ellipse(200, 200, 200, 200); // Plato en el centro
+
+			// Hamburguesa (pan superior)
+			fill(210, 180, 140); // Color beige para el pan
+			noStroke();
+			ellipse(200, 180, 100, 40);
+
+			// Hamburguesa (carne)
+			fill(139, 69, 19); // Color marrón para la carne
+			ellipse(200, 195, 90, 25);
+
+			// Hamburguesa (pan inferior)
+			fill(210, 180, 140); // Pan inferior
+			ellipse(200, 210, 100, 20);
+
+			// Lechuga
+			fill(50, 205, 50); // Verde para la lechuga
+			ellipse(200, 170, 105, 15); // Encima de la carne
+
+			// Verduras
+			fill(255, 69, 0); // Rojo para el tomate
+			ellipse(250, 250, 30, 30); // Tomate
+			fill(34, 139, 34); // Verde oscuro para espinacas
+			ellipse(150, 250, 40, 20); // Espinacas
+
+			// Pasta
+			fill(255, 222, 173); // Color crema para la pasta
+			for (var i = 0; i < 10; i++) {
+				ellipse(180 + i*10, 230, 20, 5); // Spaghetti
+			}
+		}
+	};
+
+	var canvas = document.getElementById("miLienzo");
+	var instancia = new Processing(canvas, codigoDePrograma);
+</script>
+</html>
